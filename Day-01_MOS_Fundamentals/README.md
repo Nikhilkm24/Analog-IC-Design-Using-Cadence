@@ -191,7 +191,8 @@ A basic **NMOS common-source amplifier** was designed to understand:
 - Gain observed at low frequency
 - Gain roll-off at high frequency
 - Phase shift due to parasitic capacitances
-![AC Analysis](images/Ac analysis.png)
+![AC Analysis](images/Acanalysis.png)
+
 ---
 
 ## 11. Key Learnings from Day 01
