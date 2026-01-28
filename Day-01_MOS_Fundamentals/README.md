@@ -169,7 +169,9 @@ A basic **NMOS common-source amplifier** was designed to understand:
 - NMOS with resistive load at drain
 - Gate driven by AC + DC input
 - Source connected to ground
+![NMOS Common Source Schematic](images/Schematic.png)
 
+**Observation:**
 ---
 
 ## 10. Simulation Setup in Cadence
@@ -183,12 +185,13 @@ A basic **NMOS common-source amplifier** was designed to understand:
 - Frequency: 1 kHz
 - Supply voltage: 1 V
 - Output shows amplification with phase inversion
+![Transient Response](images/Transient.png)
 
 ### AC Analysis
 - Gain observed at low frequency
 - Gain roll-off at high frequency
 - Phase shift due to parasitic capacitances
-
+![AC Analysis](images/Ac analysis.png)
 ---
 
 ## 11. Key Learnings from Day 01
