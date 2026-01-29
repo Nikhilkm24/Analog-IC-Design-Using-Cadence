@@ -38,7 +38,7 @@ Unlike a diode-connected PMOS load, the **biased PMOS provides a more ideal curr
 
 ### Schematic
 
-![CS Amplifier with PMOS Bias](schematic.png)
+![CS Amplifier with PMOS Bias](schematic1.png)
 
 *Figure 1: Common Source amplifier with externally biased PMOS active load.*
 
