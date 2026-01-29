@@ -20,6 +20,11 @@ This circuit represents a **fundamental gain stage** used in most analog ICs.
 ---
 
 ##  Circuit Description
+### Schematic
+
+![CS Amplifier Schematic](schematic.png)
+
+*Figure 1: NMOS common source amplifier with PMOS active load implemented in Cadence Virtuoso.*
 
 ### Topology
 - **NMOS (NM0)** configured in common source
@@ -59,6 +64,13 @@ DC analysis is critical to:
 ---
 
 ### Initial DC Observation
+### DC Operating Point Annotation
+
+![DC Annotation](dc_annotation.png)
+
+*Figure 2: Annotated DC operating point showing VDS and gm values for NMOS and PMOS.*
+
+
 After annotating the schematic:
 - PMOS drain-to-source voltage  
   **VDS ≈ −596 mV** (initial)
@@ -74,6 +86,11 @@ This ensures both devices remain in saturation during signal variations.
 ---
 
 ##  Parametric DC Sweep (PMOS Width Optimization)
+### Parametric Sweep of PMOS Width (W2)
+
+![Parametric DC Sweep](dc_parametric_sweep.png)
+
+*Figure 3: Parametric DC sweep used to select PMOS width for optimal VDS ≈ 500 mV.*
 
 To achieve the desired operating point, a **parametric analysis** was performed by sweeping the PMOS width (**W2**):
 
@@ -95,6 +112,11 @@ To achieve the desired operating point, a **parametric analysis** was performed 
 ---
 
 ##  Transient Analysis
+### Transient Response
+
+![Transient Response](transient_response.png)
+
+*Figure 4: Transient response showing amplified output with 180° phase inversion.*
 
 ### Purpose
 Transient analysis is used to verify:
@@ -113,6 +135,11 @@ This confirms correct **Common Source amplifier behavior**.
 ---
 
 ##  AC Analysis (Small-Signal Frequency Response)
+### AC Frequency Response
+
+![AC Response](ac_response.png)
+
+*Figure 5: AC magnitude response showing midband gain of approximately 6.7 V/V.*
 
 ### Purpose
 AC analysis evaluates:
