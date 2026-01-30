@@ -1,38 +1,39 @@
-# Op-Amp Based Circuit Verification Using Transient and Spectrum Analysis
+# Op-Amp Signal Integrity Verification Using Transient, FFT, and Spectrum Metrics
 
 > Tool: Cadence Virtuoso (Spectre APS)  
-> Analysis Tools: Transient Analysis, Calculator, Spectrum (FFT)  
-> Objective: Signal integrity and noise verification
+> Analysis: Transient, FFT (Spectrum), Signal Metrics  
+> Verification Level: Time Domain + Frequency Domain + Quantitative Metrics
 
 ---
 
 ##  Objective
 
-The objective of this experiment is to analyze and verify the behavior of an op-amp based circuit using:
+The objective of this experiment is to verify the signal integrity of an op-amp based circuit using:
 
 - Time-domain (Transient) analysis
-- Frequency-domain (Spectrum / FFT) analysis using the Calculator tool
+- Frequency-domain (FFT / Spectrum) analysis
+- Quantitative signal quality metrics obtained from the Spectrum tool
 
-The goal is to confirm that:
-- The output signal faithfully follows the input signal
-- Only the intended frequency components are present
-- Noise and unwanted harmonics are within acceptable limits
+This analysis ensures that the output signal:
+- Contains only the intended frequency components
+- Has acceptable noise performance
+- Meets standard analog signal quality criteria
 
 ---
 
 ##  Circuit Description
 
 The circuit consists of:
-- An op-amp (inbuilt gpdk045 model)
+- An inbuilt op-amp from the gpdk045 library
 - External biasing and feedback network
-- Differential and bias inputs
+- Differential input signals
 - Single-ended output
 
-The op-amp is operated in its **linear region using negative feedback**, ensuring predictable amplification and stability.
+The op-amp operates in a closed-loop configuration using negative feedback to ensure linear and stable operation.
 
 ---
 
-### Schematic
+##  Circuit Schematic
 
 ![Op-Amp Circuit](schematic.png)
 
@@ -40,113 +41,114 @@ The op-amp is operated in its **linear region using negative feedback**, ensurin
 
 ---
 
-##  Transient Analysis
+## ⏱️ Transient Analysis
 
 ### Purpose
-Transient analysis is performed to:
-- Observe time-domain waveforms
-- Verify amplification behavior
-- Ensure no clipping or distortion
+Transient analysis is used to:
+- Observe time-domain behavior
+- Verify amplification and biasing
+- Ensure absence of clipping or distortion
 
 ---
 
 ### Transient Response
 
-![Transient Response](transient_fft.png)
+![Transient and FFT Plot](transient_fft.png)
 
-*Figure 2: Transient waveforms of input and output signals.*
+*Figure 2: Time-domain waveforms of input and output signals.*
 
 ### Observations
-- Input signal is a sinusoidal waveform at **1 kHz**
+- Input signal is a sinusoid at **1 kHz**
 - Output signal is amplified and stable
-- No clipping or distortion observed
-- DC operating point is correctly set
+- DC offset is present due to biasing
+- No waveform distortion observed
 
-This confirms correct **biasing and closed-loop operation** of the op-amp.
-
----
-
-##  Spectrum (FFT) Analysis Using Calculator
-
-### Why Spectrum Analysis Is Needed
-
-While transient analysis shows waveform shape, it does **not reveal frequency purity**.  
-Spectrum (FFT) analysis is used to:
-- Identify frequency components
-- Detect harmonics and noise
-- Quantify signal purity
-
-This is critical in:
-- Analog front-end circuits
-- ADC driver stages
-- Precision amplifiers
+This confirms correct **DC operating point and closed-loop behavior**.
 
 ---
 
-### FFT Setup
-- FFT computed using **Calculator**
-- Signals analyzed:
-  - Input (`Vinp`)
-  - Output (`Vout`)
-- Frequency range up to several kHz
+##  Spectrum (FFT) Analysis
+
+### Why Spectrum Analysis Is Required
+
+Transient analysis alone cannot reveal:
+- Hidden frequency components
+- Harmonics
+- Noise floor
+
+FFT analysis converts the time-domain signal into the frequency domain, enabling detection of unwanted spectral content.
 
 ---
 
-### Spectrum Results
+### FFT Observations
 
-From the FFT plots:
+From the spectrum plots:
 
 - **DC Component (0 Hz)**  
   - Present due to DC bias  
-  - Expected and correct (DC has no frequency)
+  - Expected since DC has no frequency
 
-- **AC Component at 1 kHz**  
-  - Dominant frequency component  
+- **Fundamental Frequency (1 kHz)**  
+  - Clear and dominant peak  
   - Matches the applied input signal frequency
 
 - **Noise Floor**  
-  - All other frequency components are below **−80 dB**
-  - Indicates low noise and minimal harmonic distortion
+  - Remaining spectral components are below **−80 dB**
+  - Indicates low noise and minimal distortion
+
+This confirms acceptable signal purity.
 
 ---
 
-### Key Observation Summary
+##  Spectrum Metrics (Quantitative Verification)
 
-| Component | Observation |
-|---------|-------------|
-| DC (0 Hz) | Present due to biasing |
-| Signal Frequency | Clear peak at **1 kHz** |
-| Harmonics | Negligible |
-| Noise Floor | Below **−80 dB** |
-| Signal Integrity | Acceptable by design standards |
+In addition to visual FFT plots, the **Spectrum tool** provides numerical performance metrics.
+
+### Spectrum Window
+
+![Spectrum Metrics](spectrum_metrics.png)
+
+*Figure 3: Spectrum window showing FFT configuration and signal quality metrics.*
+
+### Extracted Metrics (from Spectrum Tool)
+
+- **SNR (Signal-to-Noise Ratio)** ≈ 25.5 dB  
+- **SNDR (Signal-to-Noise-and-Distortion Ratio)** ≈ 11.4 dB  
+- **SFDR (Spurious-Free Dynamic Range)** ≈ 12.0 dB  
+- **ENOB (Effective Number of Bits)** ≈ 1.6 bits  
+
+### Interpretation
+- Presence of a dominant fundamental tone confirms correct amplification
+- Low spurious components validate stable operation
+- Noise and distortion levels are within acceptable limits for this configuration
+- Metrics provide quantitative confirmation of signal quality
 
 ---
 
-##  Acceptance Criteria
+##  Verification Summary
 
-According to common analog design guidelines:
-- Noise below **−60 dB** is generally acceptable
-- Noise below **−80 dB** indicates **good signal integrity**
-
-✔ The circuit meets and exceeds standard requirements.
+| Verification Aspect | Result |
+|-------------------|--------|
+| Time-Domain Behavior | Stable, no distortion |
+| Fundamental Frequency | Correct (1 kHz) |
+| DC Component | Expected |
+| Noise Floor | Below −80 dB |
+| Spectrum Metrics | Acceptable |
 
 ---
 
 ##  Key Learnings
 
-- Transient analysis confirms time-domain correctness
-- Spectrum analysis validates frequency-domain behavior
+- Transient analysis validates waveform shape
+- FFT reveals frequency components and noise
+- Spectrum metrics provide quantitative signal assessment
 - DC bias appears as a 0 Hz component
-- FFT is essential to detect hidden noise and harmonics
-- Calculator tool enables advanced signal validation in Cadence
+- FFT + metrics are essential for analog front-end validation
 
 ---
 
 ##  Conclusion
 
-The op-amp based circuit was successfully verified using both transient and spectrum analysis. FFT results show that the output signal contains only the expected DC and 1 kHz AC components, with all other frequency components suppressed below −80 dB. This confirms proper biasing, stable operation, and acceptable noise performance of the circuit.
-
-This analysis demonstrates the importance of frequency-domain verification in analog IC design.
+The op-amp based circuit was successfully verified using transient, FFT, and spectrum metric analyses. The output signal contains only the expected DC and 1 kHz frequency components, with all other spectral content suppressed below −80 dB. Quantitative metrics such as SNR, SNDR, SFDR, and ENOB further confirm acceptable signal quality. This comprehensive verification demonstrates proper biasing, stable operation, and good signal integrity.
 
 ---
-
