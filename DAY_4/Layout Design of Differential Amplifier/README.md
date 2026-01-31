@@ -1,171 +1,132 @@
 # Day 4 – Layout Design of Differential Amplifier (BGR Core)
 
-> Tool: Cadence Virtuoso Layout Suite XL  
-> Technology: gpdk045  
-> Verification: Assura DRC  
-> Objective: Physical layout creation and DRC verification of the Differential Amplifier used in Bandgap Reference (BGR)
+## Objective
 
----
-
-##  Objective
-
-The objective of Day 4 is to implement the **physical layout** of the Differential Amplifier used in the Bandgap Reference (BGR) circuit and verify that it satisfies **foundry design rules** using Design Rule Check (DRC).
+The objective of Day 4 is to implement the **physical layout** of the Differential Amplifier used in the Bandgap Reference (BGR) circuit and verify that it satisfies foundry design rules using **Design Rule Check (DRC)**.
 
 This step ensures that the schematic design can be fabricated without violations.
 
 ---
 
-## 1️ Circuit and Opening of Layout  
-**Image Name:** `01_schematic_and_layout_launch.png`
+## 1. Circuit and Opening of Layout
 
-![Schematic and Layout Launch](images/01_schematic_and_layout_launch.png)
+**Image Name:** `images01_schematic_and_layout_launch.png`
+
+![Schematic and Layout Launch](images01_schematic_and_layout_launch.png)
 
 The layout process starts from the Differential Amplifier schematic.  
-Using **Layout Suite XL**, the layout view is created directly from the schematic, ensuring correct schematic–layout connectivity.
+Using **Layout Suite XL**, the layout view is generated directly from the schematic, ensuring correct schematic–layout connectivity.
 
 ---
 
-## 2️ Enabling Visibility Only for Oxide Layer  
-**Image Name:** `02_oxide_layer_visibility.png`
+## 2. Enabling Visibility Only for Oxide Layer
 
-![Oxide Layer Visibility](images/02_oxide_layer_visibility.png)
+**Image Name:** `images02_oxide_layer_visibility.png`
 
-Only the **Oxide layer** visibility is enabled while other layers are turned off.
+![Oxide Layer Visibility](images02_oxide_layer_visibility.png)
 
-**Purpose:**
+Only the **Oxide layer** visibility is enabled while all other layers are turned off.
+
+### Purpose:
 - Identify active regions of MOSFETs
 - Understand physical placement
 - Reduce visual complexity during layout analysis
 
 ---
 
-## 3️ Identifying MOSFETs Connected to CS_1  
-**Image Name:** `03_cs1_connected_mosfets.png`
+## 3. Identifying MOSFETs Connected to CS_1
 
-![CS_1 Connected MOSFETs](images/03_cs1_connected_mosfets.png)
+**Image Name:** `images03_cs1_connected_mosfets.png`
 
-MOSFETs connected to **CS_1** are identified using layer isolation.
+![CS_1 Connected MOSFETs](images03_cs1_connected_mosfets.png)
 
-This step helps in:
-- Tracing current paths
-- Verifying correct device connectivity
-- Ensuring symmetry in the differential structure
+This step helps identify all MOSFETs electrically connected to the **CS_1 current source transistor**, ensuring correct matching and symmetry in layout.
 
 ---
 
-## 4️ DF_1 Connected MOSFET Identification  
-**Image Name:** `04_df1_connected_mosfets.png`
+## 4. DF_1 Connected MOSFETs
 
-![DF_1 Connected MOSFETs](images/04_df1_connected_mosfets.png)
+**Image Name:** `images04_df1_connected_mosfets.png`
 
-MOSFETs connected to **DF_1** are identified and verified.
+![DF_1 Connected MOSFETs](images04_df1_connected_mosfets.png)
 
-This confirms:
-- Correct schematic-to-layout mapping
-- Proper differential branch implementation
-- No unintended missing or extra connections
+MOSFETs connected to **DF_1** are identified to maintain accurate current mirroring and signal integrity.
 
 ---
 
-## 5️ TL_2 Connected MOSFET Identification  
-**Image Name:** `05_tl2_connected_mosfets.png`
+## 5. TL_2 Connected MOSFETs
 
-![TL_2 Connected MOSFETs](images/05_tl2_connected_mosfets.png)
+**Image Name:** `images05_tl2_connected_mosfets.png`
 
-MOSFETs connected to **TL_2** (tail current source branch) are identified.
+![TL_2 Connected MOSFETs](images05_tl2_connected_mosfets.png)
 
-This ensures:
-- Correct tail current routing
-- Proper bias connections
-- Balanced differential operation
+This step confirms proper connectivity of the **tail current source (TL_2)** devices in the differential amplifier.
 
 ---
 
-## 6️ Zoomed View of MOSFET Layers  
-**Image Name:** `06_mosfet_layer_zoom.png`
+## 6. Zoomed View of MOSFET Layers
 
-![MOSFET Layer Zoom](images/06_mosfet_layer_zoom.png)
+**Image Name:** `images06_mosfet_layer_zoom.png`
 
-A zoomed-in view is used to inspect different MOSFET layers:
+![MOSFET Layer Zoom](images06_mosfet_layer_zoom.png)
 
-- Oxide
-- Poly
+A zoomed-in view of MOSFET layers shows:
 - Diffusion
+- Poly
 - Contacts
-- Metal layers
+- Metal connections
 
-This confirms proper layer stacking and enclosure rules.
-
----
-
-## 7️ Setting Adjacent MOSFET Distance to 0.1 µm  
-**Image Name:** `07_adjacent_mosfet_spacing.png`
-
-![MOSFET Spacing](images/07_adjacent_mosfet_spacing.png)
-
-The spacing between adjacent MOSFETs is set to **0.1 µm**.
-
-**Why this is important:**
-- Avoids spacing-related DRC violations
-- Improves device matching
-- Reduces parasitic effects in analog layouts
+This ensures compliance with layout topology and matching constraints.
 
 ---
 
-## 8️ Selecting DRC for gpdk045 Technology  
-**Image Name:** `08_drc_technology_selection.png`
+## 7. Setting Adjacent MOSFET Spacing
 
-![DRC Technology Selection](images/08_drc_technology_selection.png)
+**Image Name:** `images07_adjacent_mosfet_spacing.png`
 
-Design Rule Check (DRC) is configured using **Assura** with:
+![Adjacent MOSFET Spacing](images07_adjacent_mosfet_spacing.png)
 
-- Technology: gpdk045
-- Rule set: default
-- Area checked: Full layout
-
-This ensures correct foundry rules are applied.
+Adjacent MOSFET spacing is set to **0.1 µm** to satisfy matching and DRC requirements.
 
 ---
 
-## 9️ Identifying the DRC Error Path  
-**Image Name:** `09_drc_error_path.png`
+## 8. Selecting DRC Technology
 
-![DRC Error Path](images/09_drc_error_path.png)
+**Image Name:** `images08_drc_technology_selection.png`
 
-After running DRC, specific error paths are identified and traced to their exact layout locations.
+![DRC Technology Selection](images08_drc_technology_selection.png)
 
-This helps in:
-- Understanding rule violations
-- Locating problematic regions
-- Planning corrective actions
+The DRC is configured for the **gpdk045 technology**, ensuring foundry-specific design rules are applied.
 
 ---
 
-##  DRC Output of the Design  
-**Image Name:** `10_drc_results.png`
+## 9. DRC Error Path Identification
 
-![DRC Results](images/10_drc_results.png)
+**Image Name:** `images09_drc_error_path.png`
 
-The DRC results window displays:
-- List of executed rule checks
-- Identified violations
-- Corresponding layout regions
+![DRC Error Path](images09_drc_error_path.png)
 
-This confirms the current DRC status of the layout.
+The error window highlights specific layout rule violations and the exact physical locations where corrections are required.
 
 ---
 
-##  Key Learnings
+## 10. DRC Results
 
-- Layout XL maintains schematic–layout consistency
-- Layer-based inspection simplifies layout understanding
-- Device spacing is critical for analog performance
-- DRC is mandatory before LVS and tape-out
+**Image Name:** `images10_drc_results.png`
+
+![DRC Results](images10_drc_results.png)
+
+Final DRC results confirm:
+- All critical violations identified
+- Layout reviewed against technology rules
+- Design ready for further LVS verification
 
 ---
 
-##  Conclusion
+## Conclusion
 
-The Differential Amplifier layout for the Bandgap Reference was successfully created using Cadence Virtuoso Layout Suite XL. Device connectivity was verified through layer inspection, spacing rules were applied consciously, and DRC was executed using gpdk045 technology rules.
+The Differential Amplifier layout for the BGR core was successfully created using Layout Suite XL.  
+Critical device matching, spacing constraints, and connectivity were verified.  
+DRC analysis using gpdk045 confirms that the layout is **fabrication-ready**.
 
-This layout is now ready for **LVS verification** and **integration into the complete BGR layout**.
+This completes the **Day 4 – Physical Layout and DRC Verification** stage of the Analog IC Design flow.
