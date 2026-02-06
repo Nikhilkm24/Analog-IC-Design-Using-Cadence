@@ -10,7 +10,7 @@ All layout decisions strictly follow the **schematic intent** to ensure function
 
 ## 1. CM_1.png – Current Mirror Matching Based on Schematic
 
-![CM_1](images/CM_1.png)
+![CM_1](CM_1.png)
 
 This image explains how **current mirror matching** is implemented in the layout by taking direct reference from the schematic.
 
