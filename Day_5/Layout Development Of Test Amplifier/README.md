@@ -35,7 +35,7 @@ This ensures that the mirrored current accurately follows the reference current 
 
 ## 2. CM_2.png – Current Mirrors with Dummies and Spares
 
-![CM_2](images/CM_2.png)
+![CM_2](CM_2.png)
 
 This image shows other current mirrors along with **dummy and spare devices** added to reduce parasitic effects.
 
@@ -62,7 +62,7 @@ Using dummies and spares significantly improves **matching accuracy and noise im
 
 ## 3. DF_1.png – Differential Amplifier (Part 1)
 
-![DF_1](images/DF_1.png)
+![DF_1](DF_1.png)
 
 This image represents the **core differential amplifier input stage**.
 
@@ -83,7 +83,7 @@ This layout approach improves **CMRR** and reduces **input-referred offset**.
 
 ## 4. DF_2.png – Differential Amplifier (Part 2)
 
-![DF_2](images/DF_2.png)
+![DF_2](DF_2.png)
 
 This section shows the remaining part of the differential amplifier including load devices.
 
@@ -98,7 +98,7 @@ This ensures stable differential operation and predictable gain.
 
 ## 5. TL_1.png – Tail Pair (Current Source) – Part 1
 
-![TL_1](images/TL_1.png)
+![TL_1](TL_1.png)
 
 This image shows the **tail current source** that biases the differential amplifier.
 
@@ -118,7 +118,7 @@ This image shows the **tail current source** that biases the differential amplif
 
 ## 6. TL_2.png – Tail Pair (Current Source) – Part 2
 
-![TL_2](images/TL_2.png)
+![TL_2](TL_2.png)
 
 This image shows the continuation of tail current implementation.
 
@@ -155,7 +155,7 @@ This guarantees functional equivalence.
 
 ## 8. DRC.png – Design Rule Check Status
 
-![DRC](images/DRC.png)
+![DRC](DRC.png)
 
 This image shows the **DRC results** of the layout.
 
@@ -174,7 +174,7 @@ The layout is acceptable for functional verification.
 
 ## 9. LVS_check.png – LVS Verification Result
 
-![LVS_check](images/LVS_check.png)
+![LVS_check](LVS_check.png)
 
 This image confirms that **Layout vs Schematic (LVS)** has passed successfully.
 
