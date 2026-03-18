@@ -1,9 +1,4 @@
-> Tool: Cadence Virtuoso Layout Suite XL  
-> Technology: gpdk045  
-> Verification: Assura DRC  
-> Objective: Physical layout creation and DRC verification of the Differential Amplifier used in Bandgap Reference (BGR)
-
-# 🔬 Analog IC Design Using Cadence Virtuoso
+#  Analog IC Design Using Cadence Virtuoso
  
 > **Tool:** Cadence Virtuoso Layout Suite XL &nbsp;|&nbsp; **Technology:** gpdk045 &nbsp;|&nbsp; **Verification:** Assura DRC & LVS
  
@@ -11,13 +6,13 @@ Day-wise documentation of an Analog IC Design workshop using **Cadence Virtuoso*
  
 ---
  
-## 🏆 Key Outcome
+##  Key Outcome
  
 ✅ **Differential Amplifier** — designed from schematic capture through physical layout, with **DRC and LVS verification cleared** in Cadence Virtuoso on gpdk045 technology node.
  
 ---
  
-## 📅 Day-wise Breakdown
+##  Day-wise Breakdown
  
 | Day | Topic | Tools Used |
 |---|---|---|
@@ -29,7 +24,7 @@ Day-wise documentation of an Analog IC Design workshop using **Cadence Virtuoso*
  
 ---
  
-## 🔑 Day 4 — Differential Amplifier Layout (Highlight)
+##  Day 4 — Differential Amplifier Layout (Highlight)
  
 **Objective:** Physical layout of the Differential Amplifier used in the Bandgap Reference (BGR) core.
  
@@ -60,7 +55,7 @@ LVS — Layout vs Schematic (Assura) ✅ Cleared
  
 ---
  
-## 🔑 Day 5 — Test Amplifier Layout
+##  Day 5 — Test Amplifier Layout
  
 **Objective:** Layout development and LVS verification of a test amplifier to validate extracted vs schematic netlists.
  
@@ -70,7 +65,7 @@ LVS — Layout vs Schematic (Assura) ✅ Cleared
  
 ---
  
-## 🛠️ Tools & Technology
+##  Tools & Technology
  
 | Tool | Purpose |
 |---|---|
@@ -84,7 +79,7 @@ LVS — Layout vs Schematic (Assura) ✅ Cleared
  
 ---
  
-## 📁 Folder Structure
+##  Folder Structure
  
 ```
 Analog-IC-Design-Using-Cadence/
@@ -92,7 +87,7 @@ Analog-IC-Design-Using-Cadence/
 ├── Day_2/                         ← Common source amplifier design & simulation
 ├── Day_3/                         ← Bandgap reference design (PTAT, BGR core)
 ├── DAY_4/
-│   └── Layout Design of Differential Amplifier/   ← ⭐ Main highlight
+│   └── Layout Design of Differential Amplifier/  
 │       ├── screenshots/           ← Layout, DRC report, LVS result
 │       └── notes.md
 ├── Day_5/
@@ -104,7 +99,7 @@ Analog-IC-Design-Using-Cadence/
  
 ---
  
-## 💡 Skills Demonstrated
+##  Skills Demonstrated
  
 - Analog circuit design fundamentals (MOS, amplifiers, BGR)
 - Cadence Virtuoso schematic-to-layout full flow
@@ -114,13 +109,13 @@ Analog-IC-Design-Using-Cadence/
  
 ---
  
-## 👨‍💻 Author
+##  Author
  
 **Nikhil K M** — B.Tech ECE, The National Institute of Engineering, Mysore (2023–2027)
 [GitHub](https://github.com/Nikhilkm24)
  
 ---
  
-## 📄 License
+##  License
  
 MIT License — open for reference and educational use.
